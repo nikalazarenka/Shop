@@ -1,0 +1,9 @@
+﻿<h1>All clothes</h1>
+<h3>@Model.clothesCategory</h3>
+@{ 
+    foreach (var clothes in Model.allClothes)
+    {
+        <h2>Model: @clothes.Name</h2>
+        <p>Price: @clothes.Price.ToString("c")</p>
+    }
+}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Shop.Data.Interfaces
 {
-    interface IAllClothes
+    public interface IAllClothes
     {
         IEnumerable<Clothes> Clothes { get; }
         IEnumerable<Clothes> GetFavouriteClothes { get; set; }
