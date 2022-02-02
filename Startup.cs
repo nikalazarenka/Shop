@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Data.Interfaces;
-using Shop.Data.Mocks;
 using Shop.Data.Models;
 using Shop.Data.Repository;
 
