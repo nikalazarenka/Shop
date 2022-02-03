@@ -1,0 +1,12 @@
+﻿@model HomeViewModel
+
+
+<h1 align="center">THE BEST</h1>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Clothes clothes in Model.favClothes)
+        {
+            @Html.Partial("AllClothes", clothes)
+        }
+    }
+</div>

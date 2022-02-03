@@ -77,6 +77,36 @@ namespace Shop.Data.Models
                         IsFavourite = true,
                         Available = true,
                         Category = Categories["Shoes"]
+                    },
+                    new Clothes
+                    {
+                        Name = "Pants",
+                        Description = "Pants with lace trim",
+                        Image = "/img/pants.jpg",
+                        Price = 3500.0M,
+                        IsFavourite = false,
+                        Available = true,
+                        Category = Categories["Underwear"]
+                    },
+                    new Clothes
+                    {
+                        Name = "Shorts",
+                        Description = "Striped pajama shorts",
+                        Image = "/img/shorts.jpg",
+                        Price = 3500.0M,
+                        IsFavourite = false,
+                        Available = true,
+                        Category = Categories["Underwear"]
+                    },
+                    new Clothes
+                    {
+                        Name = "Bra",
+                        Description = "Triangular bra with glitter thread",
+                        Image = "/img/bra.jpg",
+                        Price = 3500.0M,
+                        IsFavourite = false,
+                        Available = true,
+                        Category = Categories["Underwear"]
                     }
                     );
             }
@@ -96,6 +126,7 @@ namespace Shop.Data.Models
                          new Category{Name ="Outerwear", Description = "Clothing worn over other clothes, especially outdoors."},
                          new Category{Name = "Underwear", Description = "Clothing worn under other clothes, typically next to the skin."},
                          new Category{Name = "Shoes", Description = "A covering for the foot, typically made of leather, having a sturdy sole and not reaching above the ankle."}
+
                     };
 
                     category = new Dictionary<string, Category>();
