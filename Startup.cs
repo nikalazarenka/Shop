@@ -25,6 +25,8 @@ namespace Shop
 
             services.AddTransient<IAllClothes, ClothesRepository>();
             services.AddTransient<IClothesCategory, CategoryRepository>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
+
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));
