@@ -1,15 +1,9 @@
 ﻿<h3>@Model.clothesCategory</h3>
 <div class="row mt-5 mb-2">
     @{
-        foreach (var clothes in Model.allClothes)
+        foreach (Clothes clothes in Model.allClothes)
         {
-        <div class="col-lg-4">
-            <img class="img-thumbnail" src="@clothes.Image" alt="@clothes.Name" />
-            <h2>@clothes.Name</h2>
-            <p>@clothes.Description</p>
-            <p>Price: @clothes.Price.ToString("c")</p>
-            <p><a class="btn btn-warning" href="#">More</a></p>
-        </div>
+            @Html.Partial("AllClothes", clothes)     
         }
     }
 </div>

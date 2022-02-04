@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data.Models;
 
 namespace Shop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220202115301_ShopCart")]
+    partial class ShopCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,66 +74,6 @@ namespace Shop.Migrations
                     b.ToTable("Clothes");
                 });
 
-            modelBuilder.Entity("Shop.Data.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Addres")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<DateTime>("OrderTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)");
-
-                    b.Property<string>("Surname")
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Order");
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClothesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClothesId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderDetail");
-                });
-
             modelBuilder.Entity("Shop.Data.Models.ShopCartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -166,25 +108,6 @@ namespace Shop.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Shop.Data.Models.OrderDetail", b =>
-                {
-                    b.HasOne("Shop.Data.Models.Clothes", "Clothes")
-                        .WithMany()
-                        .HasForeignKey("ClothesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Shop.Data.Models.Order", "Order")
-                        .WithMany("OrderDetail")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clothes");
-
-                    b.Navigation("Order");
-                });
-
             modelBuilder.Entity("Shop.Data.Models.ShopCartItem", b =>
                 {
                     b.HasOne("Shop.Data.Models.Clothes", "Clothes")
@@ -197,11 +120,6 @@ namespace Shop.Migrations
             modelBuilder.Entity("Shop.Data.Models.Category", b =>
                 {
                     b.Navigation("Clothes");
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.Order", b =>
-                {
-                    b.Navigation("OrderDetail");
                 });
 #pragma warning restore 612, 618
         }
